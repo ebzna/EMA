@@ -6,10 +6,10 @@ import { TiUserAdd } from "react-icons/ti";
 import ErrorBox from "@/components/ErrorBox";
 
 const Page = ({
-  closeForm,
+  setDisplayCreate,
   updateDataSet,
 }: {
-  closeForm: MouseEventHandler;
+  setDisplayCreate: Function;
   updateDataSet: Function;
 }) => {
   const [name, setName] = useState("");
@@ -51,7 +51,7 @@ const Page = ({
         body: JSON.stringify({ name, surname, age, sex, certified, expierence, occupation }),
       });
       updateDataSet([{ name, surname, age, sex, certified, expierence, occupation } ]);
-    closeForm();
+    setDisplayCreate(false);
   };
 
   return (
@@ -61,7 +61,7 @@ const Page = ({
       { errorMessage && <ErrorBox title={errorMessage} /> }
         <button
           className="flex justify-end w-full"
-          onClick={closeForm}
+          onClick={() => setDisplayCreate(false)}
           title="Close form"
         >
           <span className="shadow-md rounded-full border hover:bg-gray-100">

@@ -26,7 +26,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <div className="flex">
       {displayCreate && (
         <CreateForm
-          closeForm={() => setDisplayCreate(false)}
+          setDisplayCreate={setDisplayCreate}
           updateDataSet={(value: any) => setDataSet(dataSet.concat(value))}
         />
       )}    

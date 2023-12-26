@@ -36,7 +36,7 @@ const DataView = ({
       });
       updateData(data.filter((i: any) => i._id != _id));
     } else if (editMode) {
-      disableEdit(true);
+      setShowEditForm(true);
       setEditData(e);
     }
     disableEdit(false);

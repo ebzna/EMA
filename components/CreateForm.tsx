@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { TiUserAdd } from "react-icons/ti";
 
@@ -9,7 +9,7 @@ const Page = ({
   closeForm,
   updateDataSet,
 }: {
-  closeForm: Function;
+  closeForm: MouseEventHandler;
   updateDataSet: Function;
 }) => {
   const [name, setName] = useState("");

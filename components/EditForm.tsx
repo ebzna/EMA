@@ -6,14 +6,14 @@ import { TiUserAdd } from "react-icons/ti";
 import ErrorBox from "./ErrorBox";
 
 const Page = ({
-  closeForm,
+  setShowEditForm,
   updateDataSet,
   editData,
   dataSet
 }: {
-  editData: Object<any>
-  dataSet: Object<any>[]
-  closeForm: Function;
+  editData: any,
+  dataSet: any,
+  setShowEditForm: Function;
   updateDataSet: Function;
 }) => {
   const [name, setName] = useState(editData.name);
@@ -28,7 +28,7 @@ const Page = ({
 
   const handleUpdate = (id: string) => {
     const oldState = dataSet
-    const index = oldState.findIndex(element => element._id == id) 
+    const index = oldState.findIndex((element:any) => element._id == id) 
     oldState[index].name = name
     oldState[index].surname = surname
     oldState[index].age = age
@@ -67,7 +67,7 @@ const Page = ({
       body: JSON.stringify({ name, surname, age, sex, certified, expierence, occupation }),
     });
     handleUpdate(editData._id)
-    closeForm();
+    setShowEditForm(false);
   };
 
   return (
@@ -76,7 +76,7 @@ const Page = ({
       { errorMessage && <ErrorBox title={errorMessage} /> }
         <button
           className="flex justify-end w-full"
-          onClick={closeForm}
+          onClick={() => setShowEditForm(false)}
           title="Close form"
         >
           <span className="shadow-md rounded-full border hover:bg-gray-100">

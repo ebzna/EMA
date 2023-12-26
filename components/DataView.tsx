@@ -34,12 +34,12 @@ const DataView = ({
       await fetch(`/api/employees?id=${_id}`, {
         method: "DELETE",
       });
-      updateData(data.filter((i: Object) => i._id != _id));
+      updateData(data.filter((i: any) => i._id != _id));
     } else if (editMode) {
-      setShowEditForm(true);
+      disableEdit(true);
       setEditData(e);
     }
-    disableEdit();
+    disableEdit(false);
     disableDelete();
   };
 
@@ -50,7 +50,7 @@ const DataView = ({
           dataSet={data}
           editData={editData}
           updateDataSet={updateData}
-          closeForm={() => setShowEditForm(false)}
+          setShowEditForm={setShowEditForm}
         />
       )}
       <div

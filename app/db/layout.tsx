@@ -37,8 +37,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
        deleteMode={deleteMode}
        toggleDelete={() => setDeleteMode(!deleteMode)}
        editMode={editMode}
+
        toggleEdit={() => setEditMode(!editMode)}
-       toggleCreate={() => setDisplayCreate(!displayCreate)} 
+       toggleCreate={() => setDisplayCreate(!displayCreate)}  
        viewMode={dataViewTableMode}
        switchView={() => setDataViewTableMode(!dataViewTableMode)}
       />

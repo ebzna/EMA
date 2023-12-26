@@ -21,9 +21,9 @@ const Sidebar = ({
   toggleDelete
 }: {
   deleteMode: Boolean
-  toggleDelete: MouseEventHandler
+  toggleDelete: Function,
   editMode: Boolean
-  toggleEdit: MouseEventHandler
+  toggleEdit: Function,
   toggleCreate: MouseEventHandler;
   viewMode: Boolean;
   switchView: MouseEventHandler;
